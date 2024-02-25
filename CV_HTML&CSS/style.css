@@ -1,0 +1,114 @@
+/* Colours: 
+#F6EAE3 (Cream)
+#4D5056 (Grey) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(255, 255, 255);
+}
+img{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+.personal-picture{
+    display: flex;
+    justify-content: center;
+}
+li{
+    list-style: none;
+}
+.sidebar-content-header{
+    display: flex;
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+.sidebar-content{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-color: #F6EAE3;
+    padding: 20px;
+    height: 100%;
+    line-height: 25px;
+}
+.full{
+    width: 50%;
+    padding: 20px;
+    background-color: #cecece;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+.left{
+    width: 30%;
+    padding: 15px;
+    height: 100%;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    position: initial;
+    background-color: #F6EAE3;
+    /* position: absolute; Set the sidebar to position absolutely */
+    top: 0; /* Align with the top of the page */
+    z-index: 2; /* Higher z-index to overlay over the heading */
+    width: 30%;
+}
+.right{
+    /* width: 70%; */
+    /* height: 100%; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    padding-left: 25px;
+    position: initial;
+}
+.heading{
+    background-color: #4D5056;
+    color: rgb(238, 238, 238);
+    text-align: center;
+    width: 50%;
+    padding: 25px;
+    position: relative; /* Ensure the heading is positioned relative */
+    z-index: 1; /* Lower z-index than the sidebar */
+    /* width: 100%; */
+}
+.intro-contetn{
+    padding: 20px;
+    line-height: 25px;
+}
+.content-header{
+ font-size: x-large;   
+ background-color: #F6EAE3;
+ padding: 20px;
+ padding-top: 10px;
+ padding-bottom: 10px;
+}
+.content-inside{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 25px;
+}
+.content-inside-item{
+    padding-top: 20px;
+}
+.content-inside-lastItem{
+    padding-bottom: 20px;
+}
+.padding-content{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.content-inside-item-mini{
+    padding-top: 7px;
+}
+.content-inside-item-first{
+    padding-top: 20px;
+}
