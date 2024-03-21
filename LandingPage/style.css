@@ -12,8 +12,25 @@ html, body {
 }
 .fluid-container-backgroundclr-green{
     background: #005322;
-    height: 157px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 122px;
 }
+.container-fluid-logos {
+    background: #005322;
+    width: 100vw;
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    height: 150px;
+}
+
 .white-font{
     color: white !important;
 }
@@ -53,13 +70,13 @@ html, body {
     background-color: rgb(69, 69, 69);
 } */
 .navbar-typography{
-    color: #f9f9f9;
-    text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
 }
 .landing-page-image-shaddow{
     box-shadow: -10px 10px 7px black;   
@@ -79,7 +96,13 @@ html, body {
     font-size: 48px;
 }
 .stats-typography-minitext{
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
     font-size: 20px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
 }
 .stats-padding{
     padding-top: 50px;
@@ -124,7 +147,7 @@ html, body {
     text-align: center;
     color: #0062cc;
 }
-.contact-form .btnContact {
+/* .btnContact-color {
     width: 50%;
     border: none;
     border-radius: 1rem;
@@ -133,17 +156,33 @@ html, body {
     font-weight: 600;
     color: #fff;
     cursor: pointer;
-}
+    width: 00px;
+    height: 50px;
+    margin-top: 20px;
+} */
 .btnContactSubmit
 {
     width: 50%;
     border-radius: 1rem;
     padding: 1.5%;
     color: #fff;
-    background-color: #0062cc;
+    background-color: #005322;
     border: none;
     cursor: pointer;
 }
+.submit-btn-group{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    /* height: 20px;
+    width: 50px; */
+}
+.btnContact{
+    margin-top: 50px;
+    background-color:#005322 !important;
+}
+
+
 .media-body-background-colour{
     background-color: #1C1C1C !important;
 }
@@ -283,4 +322,32 @@ html, body {
 }
 .text-underline{
     text-decoration: underline;
+}
+
+.bg-dark {
+    background-color: #1C1C1C !important;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer a:hover {
+    color: #ebebeb;
+}
+
+.icon-size {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.footer p {
+    font-size: 12px;
+    margin-top: 15px;
 }
