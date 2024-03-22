@@ -7,9 +7,42 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
+    font-family: "PT Sans";
+}
+.hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #1C1C1C; Background color */
+    border: #ddd 1px;
+}
+.leftside{
+    background: #F8F8F8;
+}
+.formtypography{
+    color: #FFF !important;
+    /* text-align: center; */
+    font-family: "PT Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.4px;
+}
+#storyForm div input{
+    color: #FFF !important;
+    /* text-align: center; */
+    font-family: "PT Sans";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.4px;
 }
 .title-heading{
-    color: rgba(255, 255, 255, 0.90);
+    color: rgba(255, 255, 255, 0.90) !important;
     font-family: "PT Sans";
     font-size: 98px;
     font-style: normal;
@@ -18,14 +51,46 @@ body {
     letter-spacing: 6.86px;
 }
 .title-subheading{
-    
+    color: rgba(255, 255, 255, 0.70) !important;
+    text-align: center;
+    font-family: "PT Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.2px;
 }
-
+.title-subheadingalignment{
+    display: flex;
+    justify-content: flex-end;
+}
+.title-miniheading{
+    color: rgba(255, 255, 255, 0.80) !important;
+    font-family: "PT Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 3.22px;
+}
+.title-miniheadingalignment{
+    margin-top: 141px;
+}
+.briefintro{
+    color: rgba(255, 255, 255, 0.70) !important;
+    font-family: "PT Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.24px;
+    display: flex;
+}
 .container {
     /* background-color: white; */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    /* box-shadow: 0 4px 8px rgba(0,0,0,0.1); */
 }
 
 h1 {
