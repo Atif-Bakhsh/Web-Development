@@ -13,10 +13,9 @@ function loadAndShowStories() {
                         <h3>${storyItem.title}</h3>
                         <p>${storyItem.content}</p>
                         <div>
-                            <button class="btn btn-primary btn-sm mr-2 edit-story" data-story-id="${storyItem.id}">Edit</button>
-                            <button class="btn btn-warning btn-sm delete-story" data-story-id="${storyItem.id}">Delete</button>
+                            <button class="btn btn-sm mr-2 edit-story custom-button" data-story-id="${storyItem.id}">Edit</button>
+                            <button class="btn btn-sm delete-story custom-button" data-story-id="${storyItem.id}">Delete</button>
                         </div>
-                        <hr />
                     </div>`
                 );
             });
