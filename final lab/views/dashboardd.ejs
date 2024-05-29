@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bakhsh Studios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-backgroundclr">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BlackoutGrill</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto" id="auth-buttons">
+                    <!-- Auth buttons will be inserted here -->
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" id="cart-icon" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1a1 1 0 0 1 1-1h1.17a.5.5 0 0 1 .45.28L2.89 2H15a1 1 0 0 1 .92 1.39l-3 7A1 1 0 0 1 12 11H4a1 1 0 0 1-.92-.61L.1 1.61A1 1 0 0 1 0 1zM2.89 3L4.58 8h6.84l2.62-6H2.89zm1.25 8a2 2 0 1 1 3.992.149 2 2 0 0 1-3.992-.149z"/>
+                            </svg>
+                            <span id="cart-count" class="badge bg-danger">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div id="cart-popup" class="cart-popup">
+    <div class="cart-popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>Cart</h2>
+        <ul id="cart-items"></ul>
+        <button id="place-order-btn" class="btn btn-primary">Place Order</button>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="hero_content d-flex">
+        <div class="text-section">
+            <p class="landing-page-text landing-page-text-title">Blackout Grill</p>
+            <p class="landing-page-text landing-page-text-details">Feel the Authentic & Original Taste From Us</p>
+            <img src="/resources/miniArrow.svg" alt="arrow"><br>
+            <div class="line-breaks-container">
+                <img src="/resources/MiniLineBreak.svg" alt="line" class="landing-page-arrows-alignment">
+                <br>
+                <img src="/resources/ShortLineBreak.png" alt="line">
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="/resources/1sebastian-schuppik-H7xTpvBjJS4-unsplash.png" alt="Resturant" class="landing-page-image landing-page-image-shaddow">
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="stats-padding">
+                <p class="stats-typography stats-typography-largetext">Introduction</p>
+                <p class="stats-typography stats-typography-minitext">Experience an extraordinary culinary journey at BlackOut Grill, Riyadh's premier destination for high-class dining. Our restaurant offers a sophisticated atmosphere where you can indulge in gourmet burgers and succulent steaks crafted to perfection.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid px-0">
+    <div class="row gx-0">
+        <div class="col"><img src="/resources/lukas-bee-DwmS5LvmVdg-unsplash.jpg" alt="" class="img-fluid"></div>
+        <div class="col"><img src="/resources/lukas-bee-DwmS5LvmVdg-unsplash.jpg" alt="" class="img-fluid"></div>
+        <div class="col"><img src="/resources/lukas-bee-DwmS5LvmVdg-unsplash.jpg" alt="" class="img-fluid"></div>
+        <div class="col"><img src="/resources/lukas-bee-DwmS5LvmVdg-unsplash.jpg" alt="" class="img-fluid"></div>
+        <div class="col"><img src="/resources/lukas-bee-DwmS5LvmVdg-unsplash.jpg" alt="" class="img-fluid"></div>
+    </div>
+</div>
+
+<div class="container-fluid container-fluid-logos">
+    <div class="d-flex justify-content-around align-items-center">
+        <img src="/Images/logoLeft.png" alt="AutoCAD-logo">
+        <img src="/Images/logoMiddle.png" alt="SketchUp-logo">
+        <img src="/Images/logoRight.png" alt="Autodesk-3ds-Max-logo" style="height: 160px;">
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark">
+                <a href="wame.pro/1h8226" class="text-decoration-none">
+                    <div class="card-body text-center card-alignment" style="background-color: #1C1C1C !important;">
+                        <div class="icon-circle">
+                            <img class="image-within-icon" src="/resources/app.png" alt="WhatsApp">
+                        </div>
+                        <div class="card-text">
+                            <span class="white-font text-decoration-none">(+966) 53 611 3054</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark">
+                <a href="mailto:atif.bakhsh1422@gmail.com?subject=Heluu&body=This%20is%20a%20test%20email%20link" class="text-decoration-none">
+                    <div class="card-body text-center card-alignment" style="background-color: #1C1C1C !important;">
+                        <div class="icon-circle">
+                            <img class="image-within-icon" src="/resources/mail.png" alt="mail">
+                        </div>
+                        <div class="card-text">
+                            <span class="white-font text-decoration-none">atif.bakhsh1422@gmail.com</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark">
+                <a href="https://www.google.com/maps/place/KAFD,+Al+Aqiq,+Riyadh+Saudi+Arabia/data=!4m2!3m1!1s0x3e2ee2fb056ead47:0x828d40023cc0ff61?sa=X&ved=1t:242&ictx=111" class="text-decoration-none">
+                    <div class="card-body text-center card-alignment" style="background-color: #1C1C1C !important;">
+                        <div class="icon-circle">
+                            <img class="image-within-icon" src="/resources/location.png" alt="location">
+                        </div>
+                        <div class="card-text">
+                            <span class="white-font text-decoration-none">KAFD, Riyadh, Saudi Arabia.</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer mt-5 pt-4 border-top">
+    <div class="row">
+        <div class="col-12 text-center white-font">
+            <p>Copyright © 2024 BAKHSH STUDIOS. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function getCookie(name) {
+        let cookieArr = document.cookie.split(";");
+        for (let i = 0; i < cookieArr.length; i++) {
+            let cookiePair = cookieArr[i].split("=");
+            if (name == cookiePair[0].trim()) {
+                return decodeURIComponent(cookiePair[1]);
+            }
+        }
+        return null;
+    }
+  
+    function updateAuthButtons() {
+        const token = getCookie('token');
+        const userId = getCookie('userId');
+        const authButtons = document.getElementById('auth-buttons');
+  
+        if (token && userId) {
+            authButtons.innerHTML = `
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile" id="profile-link"><img src="/Images/userLogo.png" alt="User Logo" style="width: 30px; height: 30px;"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="signout">Sign Out</a>
+                </li>
+            `;
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => btn.classList.remove('disabled'));
+        } else {
+            authButtons.innerHTML = `
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/register">Sign Up</a></li>
+            `;
+            document.querySelectorAll('.add-to-cart-btn').forEach(btn => btn.classList.add('disabled'));
+        }
+    }
+  
+    let cart = [];
+    const cartIcon = document.getElementById('cart-icon');
+    const cartPopup = document.getElementById('cart-popup');
+    const cartItems = document.getElementById('cart-items');
+    const placeOrderBtn = document.getElementById('place-order-btn');
+    const cartCount = document.getElementById('cart-count');
+  
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function (event) {
+            event.preventDefault();
+            if (btn.classList.contains('disabled')) {
+                alert('You must be logged in to add items to the cart.');
+                return;
+            }
+            const foodId = btn.getAttribute('data-id');
+            const foodName = btn.getAttribute('data-name');
+            const foodPrice = parseFloat(btn.getAttribute('data-price'));
+            const foodItem = cart.find(item => item.id === foodId);
+            if (foodItem) {
+                foodItem.quantity++;
+            } else {
+                cart.push({ id: foodId, name: foodName, price: foodPrice, quantity: 1 });
+            }
+            updateCartUI();
+        });
+    });
+  
+    cartIcon.addEventListener('click', function (event) {
+        event.preventDefault();
+        cartPopup.style.display = 'block';
+    });
+  
+    document.querySelector('.close-btn').addEventListener('click', function () {
+        cartPopup.style.display = 'none';
+    });
+  
+    placeOrderBtn.addEventListener('click', function () {
+        const token = getCookie('token');
+        const userId = getCookie('userId');
+  
+        if (!token || !userId) {
+            alert('You must be logged in to place an order');
+            return;
+        }
+  
+        fetch('http://localhost:4000/api/v1/food/placeorder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ cart, id: userId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Order placed successfully!');
+                cart.length = 0;
+                updateCartUI();
+                cartPopup.style.display = 'none';
+            } else {
+                alert('Error placing order: ' + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error placing order:', error);
+            alert('Error placing order. Please try again.');
+        });
+    });
+  
+    function updateCartUI() {
+        cartItems.innerHTML = '';
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `Item: ${item.name}, Quantity: ${item.quantity}, Price: $${(item.price * item.quantity).toFixed(2)}`;
+            cartItems.appendChild(li);
+        });
+        cartCount.textContent = cart.reduce((acc, item) => acc + item.quantity, 0);
+    }
+  
+    document.addEventListener('DOMContentLoaded', function() {
+        updateAuthButtons();
+  
+        document.getElementById('signout').addEventListener('click', function (event) {
+            event.preventDefault();
+            fetch('/api/v1/auth/logout', {
+                method: 'POST'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.cookie = 'token=; Max-Age=-99999999;';
+                    document.cookie = 'userId=; Max-Age=-99999999;';
+                    window.location.href = '/';
+                }
+            });
+        });
+    });
+  </script>
+  
+  </body>
+  </html>
+  
