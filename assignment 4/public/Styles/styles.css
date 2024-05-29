@@ -2,6 +2,8 @@ html, body {
     background-color: #0a0a0a !important;
     color: white;
     font-family: 'Inter', sans-serif;
+    /* overflow-x: none; */
+    /* display: flex; */
 }
 .landing-page-hero-padding{
     padding-top: 25px;
@@ -395,5 +397,59 @@ line-height: normal;
     box-shadow: none;
 }
 
+/* Login Main Styles */
 
+/* Increased specificity for placeholder styles */
+.php-email-form .form-control::placeholder {
+    color: #bbb !important; /* Light grey color */
+    opacity: 1; /* Firefox */
+}
 
+.php-email-form .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #bbb !important;
+}
+
+.php-email-form .form-control::-ms-input-placeholder { /* Microsoft Edge */
+    color: #bbb !important;
+}
+/*                  */
+
+.card-font{
+    color: white !important;
+}
+
+.card-padding{
+    padding: 20px;
+    margin: 20px;
+}
+
+.dashboard-title-heading{
+    color: var(--white, #FFF);
+    font-family: Satoshi;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; 
+    letter-spacing: -1px;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+}
+#content {
+    margin-left: 260px;
+    width: 100%;
+    padding: 20px;
+}
+.scrollable-table {
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto;
+    display: block;
+}

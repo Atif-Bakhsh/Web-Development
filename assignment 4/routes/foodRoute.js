@@ -1,7 +1,4 @@
 const express = require("express");
-
-const authMiddleware = require("../middlewares/authMiddle");
-const adminMiddleware = require("../middlewares/adminMiddle");
 const {
   createFoodController,
   getAllFoodsController,
@@ -11,11 +8,14 @@ const {
   deleteFoodController,
   placeOrderController,
   orderStatusController,
+  getUserOrdersController, // Ensure this controller is imported
+  getOrdersController,
 } = require("../controller/foodController");
+const authMiddleware = require("../middlewares/authMiddle");
+const adminMiddleware = require("../middlewares/adminMiddle");
 
 const router = express.Router();
 
-// Routes
 // CREATE FOOD
 router.post("/create", authMiddleware, createFoodController);
 
@@ -39,5 +39,11 @@ router.post("/placeorder", authMiddleware, placeOrderController);
 
 // ORDER STATUS
 router.post("/orderStatus/:id", authMiddleware, adminMiddleware, orderStatusController);
+
+// GET USER ORDERS
+router.get("/order/getUserOrders", authMiddleware, getUserOrdersController); // Ensure this route is defined correctly
+
+// GET ALL ORDERS
+router.get("/order/getOrders", authMiddleware, adminMiddleware, getOrdersController);
 
 module.exports = router;

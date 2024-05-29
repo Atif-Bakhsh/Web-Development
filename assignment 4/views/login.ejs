@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="/Styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Login Section -->
+  <section id="login" class="d-flex align-items-center justify-content-center" style="height: 100vh; background-color: #000;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="info-form" style="background: #333; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);">
+            <h2 style="color: #fff;">Login</h2>
+            <form id="loginForm">
+              <div class="form-group mt-3">
+                <label for="email" style="color: #fff;">Email <span style="color: red;">*</span></label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required style="background-color: #222; color: #fff; border: 1px solid #555;">
+              </div>
+              <div class="form-group mt-3">
+                <label for="password" style="color: #fff;">Password <span style="color: red;">*</span></label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Your Password" required style="background-color: #222; color: #fff; border: 1px solid #555;">
+              </div>
+              <div class="text-center">
+                <button type="submit" style="background: #27a776; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">Login</button>
+              </div>
+              <div id="loginMessage" style="color: red; text-align: center; margin-top: 10px;"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer mt-5 pt-4 border-top">
+    <div class="row">
+      <div class="col-12 text-center white-font">
+        <p>Copyright © 2024 BAKHSH STUDIOS. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const response = await fetch("/api/v1/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        if (data.user.userType === "admin") {
+          window.location.href = "/dashboard";
+        } else {
+          window.location.href = "/";
+        }
+      } else {
+        document.getElementById("loginMessage").innerText = data.message;
+      }
+    });
+  </script>
+</body>
+</html>

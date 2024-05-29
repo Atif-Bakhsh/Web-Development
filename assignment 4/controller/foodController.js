@@ -1,5 +1,6 @@
 const Food = require("../models/Food");
 const Order = require("../models/Order");
+const JWT = require("jsonwebtoken");
 
 // CREATE FOOD
 const createFoodController = async (req, res) => {
@@ -7,7 +8,7 @@ const createFoodController = async (req, res) => {
     const { name, price, category, pictures, ingredients } = req.body;
 
     if (!name || !price || !category || !ingredients) {
-      return res.status(500).send({
+      return res.status(400).send({
         success: false,
         message: "Please provide all required fields",
       });
@@ -22,7 +23,7 @@ const createFoodController = async (req, res) => {
       newFood,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in create food API",
@@ -47,7 +48,7 @@ const getAllFoodsController = async (req, res) => {
       foods,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in get all foods API",
@@ -61,7 +62,7 @@ const getSingleFoodController = async (req, res) => {
   try {
     const foodId = req.params.id;
     if (!foodId) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
         message: "Please provide a food ID",
       });
@@ -78,7 +79,7 @@ const getSingleFoodController = async (req, res) => {
       food,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in get single food API",
@@ -87,12 +88,12 @@ const getSingleFoodController = async (req, res) => {
   }
 };
 
-// GET FOOD BY RESTAURANT (Not Used)
+// GET FOOD BY RESTAURANT
 const getFoodByResturantController = async (req, res) => {
   try {
     const resturantId = req.params.id;
     if (!resturantId) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
         message: "Please provide a restaurant ID",
       });
@@ -110,7 +111,7 @@ const getFoodByResturantController = async (req, res) => {
       food,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in get food by restaurant API",
@@ -124,7 +125,7 @@ const updateFoodController = async (req, res) => {
   try {
     const foodID = req.params.id;
     if (!foodID) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
         message: "No food ID was found",
       });
@@ -148,7 +149,7 @@ const updateFoodController = async (req, res) => {
       updatedFood,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in update food API",
@@ -162,7 +163,7 @@ const deleteFoodController = async (req, res) => {
   try {
     const foodId = req.params.id;
     if (!foodId) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
         message: "Provide food ID",
       });
@@ -180,7 +181,7 @@ const deleteFoodController = async (req, res) => {
       message: "Food item deleted",
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in delete food API",
@@ -193,23 +194,31 @@ const deleteFoodController = async (req, res) => {
 const placeOrderController = async (req, res) => {
   try {
     const { cart } = req.body;
-    if (!cart) {
-      return res.status(500).send({
+    const token = req.cookies.token;
+
+    if (!token) {
+      return res.status(401).send({
         success: false,
-        message: "Please provide food cart or payment method",
+        message: "No token provided",
       });
     }
-    let total = 0;
-    // Calculate total
-    cart.forEach(item => {
-      total += item.price;
-    });
+
+    const decoded = JWT.verify(token, process.env.JWT_SECRET);
+    const userId = decoded.id;
+
+    if (!cart || !cart.length) {
+      return res.status(400).send({
+        success: false,
+        message: "Cart is empty",
+      });
+    }
 
     const newOrder = new Order({
       foods: cart,
-      payment: total,
-      buyer: req.body.id,
+      payment: cart.reduce((acc, item) => acc + (item.price * item.quantity), 0),
+      buyer: userId,
     });
+
     await newOrder.save();
     res.status(201).send({
       success: true,
@@ -217,7 +226,7 @@ const placeOrderController = async (req, res) => {
       newOrder,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in place order API",
@@ -231,7 +240,7 @@ const orderStatusController = async (req, res) => {
   try {
     const orderId = req.params.id;
     if (!orderId) {
-      return res.status(404).send({
+      return res.status(400).send({
         success: false,
         message: "Please provide a valid order ID",
       });
@@ -243,7 +252,7 @@ const orderStatusController = async (req, res) => {
       message: "Order status updated",
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).send({
       success: false,
       message: "Error in order status API",
@@ -251,6 +260,67 @@ const orderStatusController = async (req, res) => {
     });
   }
 };
+
+// GET USER ORDERS
+const getUserOrdersController = async (req, res) => {
+  try {
+    const token = req.cookies.token;
+
+    if (!token) {
+      return res.status(401).send({
+        success: false,
+        message: "No token provided",
+      });
+    }
+
+    const decoded = JWT.verify(token, process.env.JWT_SECRET);
+    const userId = decoded.id;
+
+    const orders = await Order.find({ buyer: userId }).populate('foods');
+    if (!orders.length) {
+      return res.status(404).send({
+        success: false,
+        message: "No orders found for this user",
+      });
+    }
+
+    res.status(200).send({
+      success: true,
+      orders,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in get user orders API",
+      error,
+    });
+  }
+};
+
+// GET ALL ORDERS
+const getOrdersController = async (req, res) => {
+  try {
+    const orders = await Order.find({}).populate('foods').populate('buyer');
+    if (!orders.length) {
+      return res.status(404).send({
+        success: false,
+        message: "No orders found",
+      });
+    }
+    res.status(200).send({
+      success: true,
+      orders,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in get orders API",
+      error,
+    });
+  }
+}
 
 module.exports = {
   createFoodController,
@@ -261,4 +331,6 @@ module.exports = {
   deleteFoodController,
   placeOrderController,
   orderStatusController,
+  getUserOrdersController,
+  getOrdersController,
 };

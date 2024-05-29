@@ -1,31 +1,27 @@
 const userModel = require("../models/User");
 const bcrypt = require("bcryptjs");
 
-// GET USER INFGO
+// GET USER INFO
 const getUserController = async (req, res) => {
   try {
-    // find user
-    const user = await userModel.findById({ _id: req.body.id });
-    //validation
+    const user = req.user; // Use req.user set by authMiddleware
     if (!user) {
       return res.status(404).send({
         success: false,
         message: "User Not Found",
       });
     }
-    //hinde password
-    user.password = undefined;
-    //resp
+    user.password = undefined; // Hide password
     res.status(200).send({
       success: true,
-      message: "User get Successfully",
+      message: "User fetched successfully",
       user,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Eror in Get User API",
+      message: "Error in Get User API",
       error,
     });
   }
@@ -164,6 +160,24 @@ const deleteProfileController = async (req, res) => {
     });
   }
 };
+// GET all users
+const getAllUsersController = async (req, res) => {
+  try {
+    const users = await userModel.find();
+    res.status(200).send({
+      success: true,
+      message: "Users fetched successfully",
+      users,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in Get Users API",
+      error,
+    });
+  }
+};
 
 module.exports = {
   getUserController,
@@ -171,4 +185,5 @@ module.exports = {
   updatePasswordController,
   resetPasswordController,
   deleteProfileController,
+  getAllUsersController,
 };
