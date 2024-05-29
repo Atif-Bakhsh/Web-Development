@@ -30,13 +30,18 @@ app.use("/api/v1/auth", require("./routes/authRoute"));
 app.use("/api/v1/user", require("./routes/userRoute"));
 app.use("/api/v1/food", require("./routes/foodRoute"));
 app.use("/api/v1/stats", require("./routes/statsRoute"));
+app.use("/api/v1/products", require("./routes/productRoute"));
+
+
 
 // Welcome route
 app.get("/", async (req, res) => {
   try {
-    const response = await fetch(`http://localhost:${PORT}/api/v1/food/getAll`);
-    const data = await response.json();
-    res.render("index", { foods: data.foods });
+    const foodResponse = await fetch(`http://localhost:${PORT}/api/v1/food/getAll`);
+    const productResponse = await fetch(`http://localhost:${PORT}/api/v1/products/getAll`);
+    const foodData = await foodResponse.json();
+    const productData = await productResponse.json();
+    res.render("index", { foods: foodData.foods });
   } catch (error) {
     res.status(500).send("Error fetching food items");
   }
